@@ -1,0 +1,26 @@
+---
+title: "Class12"
+author: "mbaker"
+date: "11/8/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## preparfe protein structure fordocking
+
+we want to download 1HSG PDB
+
+```{r}
+library(bio3d)
+file.name = get.pdb("1hsg")
+pdb = read.pdb(file.name)
+```
+
+```{r}
+protein <- atom.select(pdb, "protein", value=T)
+write.pdb(protein, file="1hsg_protein.pdb")
+```
+
